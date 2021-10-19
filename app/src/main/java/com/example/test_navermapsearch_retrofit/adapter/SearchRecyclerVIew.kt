@@ -1,4 +1,4 @@
-package com.example.test_navermapsearch_retrofit
+package com.example.test_navermapsearch_retrofit.adapter
 
 
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test_navermapsearch_retrofit.databinding.ItemSearchRecyclerViewBinding
+import com.example.test_navermapsearch_retrofit.model.SearchModel
 
 class SearchRecyclerVIew : ListAdapter<SearchModel, SearchRecyclerVIew.ItemViewHolder>(differ) {
 
@@ -14,12 +15,15 @@ class SearchRecyclerVIew : ListAdapter<SearchModel, SearchRecyclerVIew.ItemViewH
 		RecyclerView.ViewHolder(binding.root) {
 		fun bind(searchModel: SearchModel) = with(binding) {
 
-			titleTextView.text = searchModel.title
+			val title = searchModel.title.replace("<b>","").replace("</b>","")
+			titleTextView.text = title
 			linkTextView.text = searchModel.link
 			addressTextView.text = searchModel.address
 			roadAddressTextView.text = searchModel.roadAddress
 			mapxTextView.text = searchModel.mapx.toString()
 			mapyTextView.text = searchModel.mapy.toString()
+
+
 		}
 	}
 

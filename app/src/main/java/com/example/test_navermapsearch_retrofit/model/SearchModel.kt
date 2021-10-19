@@ -1,4 +1,4 @@
-package com.example.test_navermapsearch_retrofit
+package com.example.test_navermapsearch_retrofit.model
 
 // 아이템 하부 리스트
 data class SearchModel(
